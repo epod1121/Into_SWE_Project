@@ -1,0 +1,31 @@
+/*  i highly reccomend starting with this code
+    and making everything percentage based
+    as this will make it compatable with any
+    device the website is being used on
+    
+    there are also many color palette websites 
+    so you can just copy and paste the hex value or
+    whatever you end up using to make it straight forward for you
+
+    im not sure if you have done anything with css before
+    but you can do some very cool things with it even tho it
+    doesnt seem like you can on the surface
+
+    I would also maybe add a dark theme to it after you get 
+    the main colors down and working, you can do the dark mode
+    manually and make the colors compliment each other or you can
+    just find the high contrast version of each color you
+    end up choosing. 
+
+    dont forget that the user can customize their own colors of
+    what they add to their calendar - similar to google calendar
+    i dont mean to pile a lot on top of you but once you get a hang
+    of the language a lot of it will be copying and pasting your own
+    code but with different colors
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
