@@ -19,9 +19,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>College Planner</title>
 </head>
-<body>
-    
+<body id="planner-body" class="page-body">
+
+    <!-- Header -->
+    <header id="main-header" class="header-container">
+        <div id="header-content" class="header-content">
+            <h1 id="app-title" class="app-title">College Planner</h1>
+            <p id="app-subtitle" class="app-subtitle">Stay organized with assignments, classes, and notes</p>
+        </div>
+
+        <nav id="main-navigation" class="navigation-container">
+            <ul id="navigation-list" class="navigation-list">
+                <li id="nav-item-dashboard" class="nav-item">
+                    <a href="#dashboard-section" id="nav-link-dashboard" class="nav-link">Dashboard</a>
+                </li>
+                <li id="nav-item-assignments" class="nav-item">
+                    <a href="#assignments-section" id="nav-link-assignments" class="nav-link">Assignments</a>
+                </li>
+                <li id="nav-item-schedule" class="nav-item">
+                    <a href="#schedule-section" id="nav-link-schedule" class="nav-link">Schedule</a>
+                </li>
+                <li id="nav-item-calendar" class="nav-item">
+                    <a href="#calendar-section" id="nav-link-calendar" class="nav-link">Calendar</a>
+                </li>
+                <li id="nav-item-notes" class="nav-item">
+                    <a href="#notes-section" id="nav-link-notes" class="nav-link">Notes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="content-section">
+            <h2 id="dashboard-title" class="section-title">Dashboard</h2>
+
+            <div id="dashboard-cards" class="card-container">
+                <div id="upcoming-assignments-card" class="dashboard-card">
+                    <h3 id="upcoming-assignments-title" class="card-title">Upcoming Assignments</h3>
+                    <p id="upcoming-assignments-text" class="card-text">No assignments added yet.</p>
+                </div>
+
+                <div id="today-classes-card" class="dashboard-card">
+                    <h3 id="today-classes-title" class="card-title">Today's Classes</h3>
+                    <p id="today-classes-text" class="card-text">No classes scheduled yet.</p>
+                </div>
+
+                <div id="planner-notes-card" class="dashboard-card">
+                    <h3 id="planner-notes-title" class="card-title">Quick Reminders</h3>
+                    <p id="planner-notes-text" class="card-text">Stay on top of quizzes, projects, and deadlines.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assignments Section -->
+        <section id="assignments-section" class="content-section">
+            <h2 id="assignments-title" class="section-title">Assignments</h2>
+
+            <div id="assignment-form-container" class="form-container">
+                <form id="assignment-form" class="planner-form">
+                    <div id="course-name-group" class="form-group">
+                        <label for="course-name-input" id="course-name-label" class="form-label">Course Name</label>
+                        <input type="text" id="course-name-input" class="form-input" name="courseName" placeholder="Enter course name">
+                    </div>
+
+                    <div id="assignment-name-group" class="form-group">
+                        <label for="assignment-name-input" id="assignment-name-label" class="form-label">Assignment Name</label>
+                        <input type="text" id="assignment-name-input" class="form-input" name="assignmentName" placeholder="Enter assignment name">
+                    </div>
+
+                    <div id="assignment-date-group" class="form-group">
+                        <label for="assignment-date-input" id="assignment-date-label" class="form-label">Due Date</label>
+                        <input type="date" id="assignment-date-input" class="form-input" name="assignmentDate">
+                    </div>
+
+                    <div id="assignment-priority-group" class="form-group">
+                        <label for="assignment-priority-select" id="assignment-priority-label" class="form-label">Priority</label>
+                        <select id="assignment-priority-select" class="form-select" name="assignmentPriority">
+                            <option value="">Select priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+
+                    <div id="assignment-button-group" class="button-group">
+                        <button type="submit" id="add-assignment-button" class="action-button">Add Assignment</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="assignment-list-container" class="list-section">
+                <h3 id="assignment-list-title" class="subsection-title">Upcoming Assignment List</h3>
+                <ul id="assignment-list" class="planner-list">
+                    <li id="sample-assignment-item" class="list-item">Sample assignment will appear here.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section id="schedule-section" class="content-section">
+            <h2 id="schedule-title" class="section-title">Class Schedule</h2>
+
+            <div id="schedule-form-container" class="form-container">
+                <form id="schedule-form" class="planner-form">
+                    <div id="class-title-group" class="form-group">
+                        <label for="class-title-input" id="class-title-label" class="form-label">Class</label>
+                        <input type="text" id="class-title-input" class="form-input" name="classTitle" placeholder="Enter class name">
+                    </div>
+
+                    <div id="class-day-group" class="form-group">
+                        <label for="class-day-select" id="class-day-label" class="form-label">Day</label>
+                        <select id="class-day-select" class="form-select" name="classDay">
+                            <option value="">Select day</option>
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednesday">Wednesday</option>
+                            <option value="thursday">Thursday</option>
+                            <option value="friday">Friday</option>
+                        </select>
+                    </div>
+
+                    <div id="class-time-group" class="form-group">
+                        <label for="class-time-input" id="class-time-label" class="form-label">Time</label>
+                        <input type="time" id="class-time-input" class="form-input" name="classTime">
+                    </div>
+
+                    <div id="class-location-group" class="form-group">
+                        <label for="class-location-input" id="class-location-label" class="form-label">Location</label>
+                        <input type="text" id="class-location-input" class="form-input" name="classLocation" placeholder="Enter class location">
+                    </div>
+
+                    <div id="schedule-button-group" class="button-group">
+                        <button type="submit" id="add-class-button" class="action-button">Add Class</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="schedule-list-container" class="list-section">
+                <h3 id="schedule-list-title" class="subsection-title">Weekly Schedule</h3>
+                <ul id="schedule-list" class="planner-list">
+                    <li id="sample-schedule-item" class="list-item">Class schedule items will appear here.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Calendar Section -->
+        <section id="calendar-section" class="content-section">
+            <h2 id="calendar-title" class="section-title">Calendar</h2>
+
+            <div id="calendar-container" class="calendar-container">
+                <div id="calendar-placeholder" class="calendar-placeholder">
+                    <p id="calendar-placeholder-text" class="placeholder-text">
+                        Calendar layout will be added here.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes Section -->
+        <section id="notes-section" class="content-section">
+            <h2 id="notes-title" class="section-title">Notes</h2>
+
+            <div id="notes-form-container" class="form-container">
+                <form id="notes-form" class="planner-form">
+                    <div id="notes-input-group" class="form-group">
+                        <label for="notes-textarea" id="notes-label" class="form-label">Write Notes</label>
+                        <textarea id="notes-textarea" class="form-textarea" name="notesText" rows="8" placeholder="Write your notes here..."></textarea>
+                    </div>
+
+                    <div id="notes-button-group" class="button-group">
+                        <button type="submit" id="save-notes-button" class="action-button">Save Notes</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer" class="footer-container">
+        <p id="footer-text" class="footer-text">College Planner Project</p>
+    </footer>
+
 </body>
 </html>
