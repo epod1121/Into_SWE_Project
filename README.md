@@ -3,9 +3,13 @@
 General Planner
 
 Overview
+
 The General Planner is a browser-based deadline tracking system designed to help students and professionals manage complex schedules. The project addresses the need for a central system to track multi-stage deadlines—such as discussion board posts that require initial entries and subsequent responses—which are often poorly defined or easy to overlook. Users can create accounts, manage a personal calendar, and receive automated browser notifications as deadlines approach.
 
+
+
 Key Features
+
 
 Event Management: Full CRUD (Create, Read, Update, Delete) capabilities for calendar events, including titles, descriptions, and due dates.
 
@@ -18,7 +22,9 @@ Responsive UI: A mobile-friendly interface that allows users to view and manage 
 Categorization: Ability to use custom tags (e.g., Work, School, Personal) to organize upcoming events.
 
 
+
 Technology Stack
+
 
 The project is built using a straightforward, portable technology stack to ensure ease of maintenance and broad compatibility without the complexity of heavy frameworks:
 
@@ -29,7 +35,9 @@ Logic Layer: JavaScript (JS) for handling event listeners, internal clock logic,
 Backend/Storage: SQL database for persistent storage of user profiles and event data.
 
 
+
 System Architecture
+
 
 The application follows a three-tier architecture:
 
@@ -40,7 +48,9 @@ Logic (JavaScript): Processes deadlines and triggers notifications.
 Database (SQL): Stores user credentials and event details across two primary tables: User and Event.
 
 
+
 Performance & Reliability Standards
+
 
 Speed: Pages are designed to load within 2 seconds under normal usage.
 
@@ -49,7 +59,9 @@ Uptime: The system aims for 99% availability, excluding scheduled maintenance.
 Data Integrity: Automatic database backups are scheduled every 12 hours to prevent significant data loss in the event of a failure.
 
 
+
 Installation and Requirements
+
 
 Platform: Accessible via modern web browsers such as Chrome, Safari, and Edge.
 
@@ -58,7 +70,9 @@ Connectivity: Requires an active internet connection to access stored data and r
 Manual Entry: Events must be entered manually; the current version does not support automatic syncing with external calendars or AI-based suggestions.
 
 
+
 Project Team (Group 6)
+
 
 Ethan Podhorez: Project Leader 
 
