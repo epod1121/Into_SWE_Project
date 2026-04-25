@@ -25,7 +25,141 @@
 */
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0%;
+  padding: 0%;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/*Default background color white
+    Dark mode background will be dark grey
+    will work on dark mode once the basic requirements are done
+*/
+
+body{
+    background:#ffffff;
+    color:#000000
+}
+
+/*Dark mode
+    Changes the white background to a dark grey
+    and the black text to white
+    just needs some js function
+*/
+.darkmode{
+    background-color: #757575;
+    color: #ffffff;
+}
+
+
+
+/*Header*/
+.header-container{
+    background-color: #51a04a;
+}
+
+.header-content{
+    text-align: center;    
+    color: #ffffff;
+    padding: 5%;
+}
+
+/*Heaader Navbar*/
+
+.navigation-container{
+    position: sticky;
+    top: 0%;
+}
+.navigation-container ul{
+    list-style-type: none;
+    background-color: #535353;
+    padding: 0%;
+    margin: 0%;
+    overflow: hidden;
+}
+
+.navigation-container a{
+    color:#ffffff;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+.navigation-container a:hover{
+    background-color: #707070;
+}
+
+.navigation-container li{
+    float: left;
+}
+
+/*Sections*/
+.section-title {
+    background-color: #535353;
+    color: #ffffff;
+    padding: 1%;
+    text-align: center;
+}
+
+/*Dashboard*/
+.card-container{
+    padding: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.dashboard-card p{
+    padding: 0%;
+    margin: 2%;    
+}
+
+/*Assignments and Schedule*/
+.form-container{
+    padding: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.form-label{
+    padding: 0%;
+    margin: 0%;
+}
+
+.button-group{
+    padding: 0%;
+    margin: 0%;
+}
+
+.list-section{
+    padding: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.list-section ul{
+    list-style-type: none;
+    padding: 0%;
+    margin: 2%;
+}
+
+/*Calendar Section*/
+.calendar-container{
+    padding: 2%;
+    margin-left: 2%;
+    margin-right: 2%;    
+}
+
+/*Notes Section*/
+
+
+/*Footer*/
+.footer-container{
+    background-color: #535353;
+    background-attachment: fixed;
+    color:#ffffff;
+    padding: 1%;
+    text-align: center;
+    
 }
