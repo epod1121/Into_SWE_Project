@@ -1,83 +1,96 @@
-// there will probably be some tricky things you need to do
-// for this project and i am more than willing to help if you need it
-// let me know if you need any help with the specifics of connecting with
-// the html file but most of actual mathy-coding is straight forward :)
-// javascript is like if java and python had a baby so a lot of the code 
-// will look familiar just typed differently
-
-// you got this and dont hesitate to reach out in the groupme!
 class Event {
-    constructor(event_id, user_id, title, description, due_date, is_expired) {
-        this.event_id = event_id;
-        this.user_id = user_id;
+    constructor(title, description, due_date) {
+        this.id = Date.now();
         this.title = title;
         this.description = description;
         this.due_date = new Date(due_date);
-        this.is_expired = is_expired;
-    }
-
-    /*
-    Made this for when the user wants to update event info.
-    I do not know how to get input from the front end though so for now it is not called.
-    */
-    updateEvent(updateInfo) {
-        if (updateInfo.title) {
-            this.title = updateInfo.title;
-        }
-        if (updateInfo.description) {
-            this.description = updateInfo.description;
-        }
-        if (updateInfo.due_date) {
-            this.due_date = new Date(updateInfo.due_date);
-            this.is_expired = false;
-            setAlarm(this);
-        }
     }
 }
 
 let alarmList = [];
 
-function triggerAlarm(event, alarmID) {
-    event.is_expired = true;
-    alert(event.title);
-    alarmList = alarmList.filter(function(alarm) {
-        return (alarm.alarmID != alarmID);
-    });
-}
+// 2. UI SELECTORS
+const colorInput = document.getElementById('base-color-input');
+const assignmentForm = document.getElementById('assignment-form');
+const assignmentList = document.getElementById('assignment-list');
+const scheduleForm = document.getElementById('schedule-form');
+const scheduleList = document.getElementById('schedule-list');
+const notesForm = document.getElementById('notes-form');
 
+// 3. COLOR PICKER
+colorInput.addEventListener('input', (e) => {
+    document.body.style.setProperty('--base-color', e.target.value);
+});
+
+// 4. ASSIGNMENT LOGIC
+assignmentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('assignment-name-input').value;
+    const date = document.getElementById('assignment-date-input').value;
+    const course = document.getElementById('course-name-input').value;
+
+    if (!name || !date) return alert("Please enter a name and date.");
+
+    const newAssignment = new Event(name, course, date);
+    
+    // Add to HTML List
+    const li = document.createElement('li');
+    li.className = 'list-item';
+    li.innerHTML = `<strong>${newAssignment.title}</strong> (${newAssignment.description}) - Due: ${newAssignment.due_date.toLocaleDateString()}`;
+    assignmentList.appendChild(li);
+
+    setAlarm(newAssignment);
+    assignmentForm.reset();
+});
+
+// 5. SCHEDULE LOGIC
+scheduleForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const className = document.getElementById('class-title-input').value;
+    const day = document.getElementById('class-day-select').value;
+    const time = document.getElementById('class-time-input').value;
+
+    const li = document.createElement('li');
+    li.className = 'list-item';
+    li.innerHTML = `<strong>${className}</strong> - ${day} at ${time}`;
+    scheduleList.appendChild(li);
+
+    scheduleForm.reset();
+});
+
+// 6. NOTES LOGIC
+notesForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const noteText = document.getElementById('notes-textarea').value;
+    
+    // For now, we'll just alert the user it's saved. 
+    // Real saving would go to LocalStorage or a Database.
+    alert("Note saved locally!");
+    console.log("Saved Note:", noteText);
+});
+
+// 7. ALARM SYSTEM
 function setAlarm(event) {
-    alarmList = alarmList.filter(function(alarm) {
-        let filterBoolean;
-        if (alarm.event_id == event.event_id) {
-            clearTimeout(alarm.alarmID);
-            return (filterBoolean = false);
-        }
-        return (filterBoolean = true);
-    });
+    const reminders = [
+        { offset: 24 * 60 * 60 * 1000, label: "24 hours" },
+        { offset: 60 * 60 * 1000, label: "1 hour" },
+        { offset: 0, label: "final" }
+    ];
 
-    const reminderAdjust = [(24 * 60 * 60 * 1000), (60 * 60 * 1000), 0];
-    reminderAdjust.forEach(function(reminder) {
-        const alarmTime = event.due_date.getTime() - reminder;
-        const alarmReminder = alarmTime - new Date().getTime();
-        if (alarmReminder > 0) {
-        const alarmID = setTimeout(function() {
-            triggerAlarm(event, alarmID);
-        }, alarmReminder)
-        alarmList.push({
-            event_id: event.event_id,
-            due_date: event.due_date,
-            alarmID: alarmID
-            });
-        }
+    reminders.forEach(reminder => {
+        const alarmTime = event.due_date.getTime() - reminder.offset;
+        const timeUntilAlarm = alarmTime - Date.now();
 
-    else {
-        if (reminder == 0) {
-            alert("Event is before current time. Please enter a valid date.");
+        if (timeUntilAlarm > 0) {
+            const alarmID = setTimeout(() => {
+                if (reminder.label === "final") {
+                    alert(`🚨 DEADLINE: ${event.title} is due now!`);
+                } else {
+                    alert(`🔔 REMINDER: ${event.title} is due in ${reminder.label}.`);
+                }
+            }, timeUntilAlarm);
+
+            alarmList.push({ id: event.id, alarmID });
         }
-    }
     });
 }
-
-//Here to just represent accepting a user created event and then using setAlarm to start the timer for it.
-const userEvent = new Event(event_id, user_id, title, description, due_date, is_expired);
-setAlarm(userEvent);
