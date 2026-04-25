@@ -24,142 +24,170 @@
     code but with different colors
 */
 
+/*
+    I've found that em units are
+    best to work with and is compatible
+    with any device
+*/
 * {
-  margin: 0%;
-  padding: 0%;
+  margin: 0em;
+  padding: 0em;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+    /*
+        Will need js for user input im order for
+        the color to switch to user's desired color
+    */    
+    --base-color:#3b3b3b;
 
-/*Default background color white
-    Dark mode background will be dark grey
-    will work on dark mode once the basic requirements are done
-*/
+    --surface-color: oklch(from var(--base-color) calc(l * 1.2) c h);
+    --hover-color: oklch(from var(--base-color) calc(l * 1.6) c h );
+    --text-color: #f0f0f0;
+    --secondary-text-color: #b0b3c0;
 
-body{
-    background:#ffffff;
-    color:#000000
+    background: var(--base-color);
+    color: var(--text-color);
+    
 }
 
-/*Dark mode
-    Changes the white background to a dark grey
-    and the black text to white
-    just needs some js function
-*/
-.darkmode{
-    background-color: #757575;
-    color: #ffffff;
+.header-content {
+    padding: 1em;
 }
 
-
-
-/*Header*/
-.header-container{
-    background-color: #51a04a;
+/*Color picker button*/
+.color-picker {
+    display: flex;
+    gap: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
 }
 
-.header-content{
-    text-align: center;    
-    color: #ffffff;
-    padding: 5%;
+.color-picker label[for="base-color-input"] {
+    background: var(--surface-color);
+    padding: .7em 1em;
+    border-radius: .5em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
 }
 
-/*Heaader Navbar*/
-
-.navigation-container{
-    position: sticky;
-    top: 0%;
+#base-color-input {
+    width: 2em;
+    height: 2em;
+    background: none;
+    border: none;
 }
-.navigation-container ul{
+
+/*Navigation Bar*/
+.navigation-container ul {
     list-style-type: none;
-    background-color: #535353;
-    padding: 0%;
-    margin: 0%;
+    background: var(--surface-color);
+    border-radius: .5em;
+    padding-left: .9em;
+    margin-left: 1em;
+    margin-right: 1em;
     overflow: hidden;
 }
 
-.navigation-container a{
-    color:#ffffff;
+.navigation-container a {
+    color: var(--text-color);
     text-decoration: none;
-    padding: 15px;
-    display: block;
+    padding: .9em;
+    display: flex;
     text-align: center;
 }
 
-.navigation-container a:hover{
-    background-color: #707070;
+.navigation-container a:hover {
+    background: var(--hover-color);
+    border-radius: .5em;
 }
 
-.navigation-container li{
+.navigation-container li {
     float: left;
 }
 
-/*Sections*/
-.section-title {
-    background-color: #535353;
-    color: #ffffff;
-    padding: 1%;
-    text-align: center;
+main {
+    margin:1em;
+    margin-left: 3em;
+    margin-right: 3em;
 }
 
-/*Dashboard*/
-.card-container{
-    padding: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
+/*Applies to all Sections*/
+section {
+    background: var(--surface-color);
+    color: var(--secondary-text-color);
+    padding: 1.5em;
+    border-radius: .5em;
+    margin: 1em;
 }
 
-.dashboard-card p{
-    padding: 0%;
-    margin: 2%;    
+section h2 {
+    padding: .5em;
+    color: var(--text-color);
 }
 
-/*Assignments and Schedule*/
-.form-container{
-    padding: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
+section h3 {
+    color: var(--text-color);
+    margin:.5em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
 }
 
-.form-label{
-    padding: 0%;
-    margin: 0%;
+section p {
+    padding: .5em;
+    margin:.5em;
+    margin-left: 3em;
+    margin-right: 3em;
 }
 
-.button-group{
-    padding: 0%;
-    margin: 0%;
-}
-
-.list-section{
-    padding: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
-}
-
-.list-section ul{
+section li {
+    padding: .5em;
+    margin:.5em;
+    margin-left: 3em;
+    margin-right: 3em;
     list-style-type: none;
-    padding: 0%;
-    margin: 2%;
 }
 
-/*Calendar Section*/
-.calendar-container{
-    padding: 2%;
-    margin-left: 2%;
-    margin-right: 2%;    
+/*Assignment and Class Section forms*/
+section form {
+    padding: .5em;
+    margin:.5em;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.form-group {
+    padding: .3em;
+}
+
+.form-input {
+    padding: .2em;
+    border-radius: .5em;
+}
+
+.form-select {
+    padding: .2em;
+    border-radius: .5em;
+}
+
+/*Assiignment, Class, and Note Section buttons*/
+.action-button {
+    padding: .2em;
+    border-radius: .5em;
+    padding: .4em .4em;
 }
 
 /*Notes Section*/
-
+.form-textarea {
+    padding: 1em;
+    width: 15em;
+    border-radius: .5em;
+}
 
 /*Footer*/
 .footer-container{
-    background-color: #535353;
-    background-attachment: fixed;
-    color:#ffffff;
-    padding: 1%;
-    text-align: center;
-    
+    padding: 1em
 }
